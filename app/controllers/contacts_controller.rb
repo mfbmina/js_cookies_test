@@ -24,6 +24,7 @@ class ContactsController < ApplicationController
   # POST /contacts
   # POST /contacts.json
   def create
+    byebug
     @contact = Contact.new(contact_params)
 
     respond_to do |format|
@@ -69,6 +70,6 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.fetch(:contact, {})
+      params.require(:contact).permit(:name, :email)
     end
 end
