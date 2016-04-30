@@ -1,4 +1,6 @@
 class Contact < ActiveRecord::Base
+  has_many :cookies
+
   validates :name, presence: true
   validates :email, presence: true
   validates :email, uniqueness: true

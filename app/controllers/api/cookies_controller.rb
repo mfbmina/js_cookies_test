@@ -3,7 +3,10 @@ class Api::CookiesController < ApplicationController
   before_action :ensure_json_request
 
   def create
-    if Cookie.create(cookie_params)
+    contact = Contact.where(email: params[:uid]).first
+    cookie = Cookie.new(cookie_params)
+    cookie.contact = contact
+    if cookie.save
       render json: {}, status: :created
     else
       render json: {}, status: :bad_request
@@ -13,7 +16,7 @@ class Api::CookiesController < ApplicationController
   private
 
   def cookie_params
-    new_params = params.require(:cookie).permit(:uid, :url, :accessTime)
+    new_params = params.require(:cookie).permit(:url, :accessTime)
     new_params[:access_time] = new_params[:accessTime]
     new_params.delete(:accessTime)
     new_params

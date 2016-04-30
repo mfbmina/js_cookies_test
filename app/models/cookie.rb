@@ -1,5 +1,7 @@
 class Cookie < ActiveRecord::Base
-  validates :uid, presence: true
+  belongs_to :contact
+
+  validates :contact, presence: true
   validates :url, presence: true
   validates :access_time, presence: true
 end

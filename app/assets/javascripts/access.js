@@ -12,8 +12,8 @@ class Access {
 
   register() {
     var params = {
+      uid: this.getCookie('uid'),
       cookie: {
-        uid: this.getCookie('uid'),
         url: this.getCookie('url'),
         accessTime: this.getCookie('accessTime')
       }
