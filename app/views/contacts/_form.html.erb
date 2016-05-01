@@ -1,4 +1,4 @@
-<%= form_for @contact, :html => { :class => "form-horizontal contact" } do |f| %>
+<%= form_for @contact, :html => { :class => "form-horizontal contact", onsubmit: 'createCookie()' } do |f| %>
 
   <% if @contact.errors.any? %>
     <div id="error_expl" class="panel panel-danger">

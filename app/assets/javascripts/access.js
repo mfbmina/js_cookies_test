@@ -3,14 +3,19 @@ class Access {
   }
 
   createCookie(uid) {
-    if (uid != '') {
-      document.cookie = "uid=" + uid + ";path=/";
-      document.cookie = "url=" + window.location.href + ";path=/";
-      document.cookie = "accessTime=" + new Date().toUTCString() + ";path=/";
-    }
+    document.cookie = "uid=" + uid + ";path=/";
+    this.updateCookie();
+  }
+
+  updateCookie() {
+    document.cookie = "url=" + window.location.href + ";path=/";
+    document.cookie = "accessTime=" + new Date().toUTCString() + ";path=/";
   }
 
   register() {
+    if (this.getCookie('uid') === '') {
+      return;
+    }
     var params = {
       uid: this.getCookie('uid'),
       cookie: {

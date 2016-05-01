@@ -16,4 +16,5 @@
 //= require_tree .
 
 access = new Access();
+access.updateCookie();
 access.register();
