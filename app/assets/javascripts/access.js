@@ -4,9 +4,9 @@ class Access {
 
   createCookie(uid) {
     if (uid != '') {
-      document.cookie = "uid=" + uid;
-      document.cookie = "url=" + window.location.href;
-      document.cookie = "accessTime=" + new Date().toUTCString();
+      document.cookie = "uid=" + uid + ";path=/";
+      document.cookie = "url=" + window.location.href + ";path=/";
+      document.cookie = "accessTime=" + new Date().toUTCString() + ";path=/";
     }
   }
 

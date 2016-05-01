@@ -1,0 +1,24 @@
+<%- model_class = Cookie -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= Cookie.human_attribute_name(:email) %></th>
+      <th><%= model_class.human_attribute_name(:url) %></th>
+      <th><%= model_class.human_attribute_name(:access_time) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cookies.each do |cookie| %>
+      <tr>
+        <td><%= cookie.id %></td>
+        <td><%= cookie.contact.email %></td>
+        <td><%= cookie.url %></td>
+        <td><%=l cookie.access_time %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
