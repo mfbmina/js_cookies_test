@@ -1,6 +1,7 @@
 # README
 
 Running steps:
+
 1. Clone this repo.
 
 2. Run bundle install
