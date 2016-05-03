@@ -2,6 +2,7 @@ class Api::CookiesController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :ensure_json_request
 
+  # POST /api/cookies
   def create
     contact = Contact.where(email: params[:uid]).first
     cookie = Cookie.new(cookie_params)
